@@ -1,7 +1,8 @@
 <template>
   <div>
-    <Fio lastName="Ведерников" firstName="Дмитрий" middleName="Михайлович"></Fio>
-    <Vyatsu :results="results"></Vyatsu>
+    <Fio lastName="Ведерников" firstName="Дмитрий" middleName="Михайлович"/>
+    <Vyatsu :results="results"/>
+    <Registration/>
   </div>
 </template>
 
@@ -10,23 +11,24 @@ import Vue from 'vue';
 import axios from 'axios';
 import Fio from '../../fio/src/components/Fio.vue';
 import Vyatsu from '../../vyatsu/src/components/Vyatsu.vue';
+import Registration from '../../Registration/src/components/Registration.vue';
 
-const url = 'https://new.vyatsu.ru/';
-// const url = 'http://127.0.0.1:5500/main/src/components/8.Html';
+const url = 'http://localhost:8080/admission/';
 
 export default {
   name: 'App',
+  props: {
+    results: [],
+  },
   components: {
     Fio,
     Vyatsu,
-  },
-  data() {
-    return { Fio, results: [] };
+    Registration,
   },
   mounted() {
     axios
       .get(url)
-      .then((response: any) => {
+      .then((response) => {
         console.log(response);
         this.results = response.data;
       })

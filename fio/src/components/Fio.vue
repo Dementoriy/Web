@@ -18,5 +18,6 @@ export default {
 <style scoped>
 div {
   text-align: center;
+  width: 100%;
 }
 </style>

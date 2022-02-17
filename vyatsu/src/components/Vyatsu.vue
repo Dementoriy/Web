@@ -12,7 +12,7 @@ export default {
 
 <style>
 .frame {
-  width: 1200px;
+  width: 100%;
   height: 500px;
   font-size: 32px;
 }

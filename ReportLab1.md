@@ -12,7 +12,6 @@
 
 <p align = center>Кафедра систем автоматизации управления
 
-
 <p align = right>Дата сдачи на проверку:
 
 <p align = right>«___» __________ 2022 г.
@@ -20,7 +19,6 @@
 <p align = right>Проверено:
 
 <p align = right>«___» __________ 2022 г.
-
 
 <p align = center>Отчет по лабораторной работе № 1
 
@@ -33,16 +31,11 @@
 
 
 
-
 <p align = center>Разработал студент гр. ИТб-2301-01-00 ________________ /Ведерников Д.М./
 
 <p align = center>Проверил ст. преподаватель _________________ /Земцов М.А./
 
-<p align = center>Работа защищена с оценкой	«___________» «___» __________ 2022 г.
-
-
-
-
+<p align = center>Работа защищена с оценкой «___________» «___» __________ 2022 г.
 
 
 
@@ -85,9 +78,13 @@ Webpack — это статический сборщик модулей. Его 
 
 К текущему проекту был подключен сборщик модулей Webpack с помощью команды npm install.
 
+<p align = center>2
+__________
+
 4. Подключить и изучить библиотеку Axios
 
 Axios — это широко известная JavaScript-библиотека. Она представляет собой HTTP-клиент, основанный на промисах и предназначенный для браузеров и для Node.js.
+
 
 К текущему проекту была подключена библиотека Axios с помощью node.
 
@@ -123,6 +120,9 @@ TypeScript — это язык программирования, в которо
   </div>
 </template>
 
+<p align = center>3
+__________
+
 <script lang="ts">
 import Vue from 'vue';
 import axios from 'axios';
@@ -150,6 +150,7 @@ export default {
 };
 </script>
 ```
+<p align = center>4
 __________
 
 <p align = center>Приложение Б
@@ -168,6 +169,8 @@ import Vue from 'vue';
 
 export default Vue.extend({
 name: 'Fio',
+
+
 props: {
 lastName: String,
 firstName: String,
@@ -197,6 +200,10 @@ text-align: center;
 export default {
   props: {
     results: [],
+
+<p align = center>5
+__________
+
   },
 };
 </script>
@@ -225,4 +232,5 @@ ______
 - <https://habr.com/ru/company/ruvds/blog/477286/>
 - <https://medium.com/nuances-of-programming/введение-в-webpack-для-новичков-6cafbf562386>
 
-<p align = center>11
+<p align = center>6
+

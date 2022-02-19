@@ -192,7 +192,7 @@ __________
 
 __________
 
-```html
+```css
 
   @media (max-width:600px){
     .container{

@@ -126,16 +126,15 @@ export default {
   .container{
     width: 100%;
     margin: 0 auto;
-
+   display: flex;
+    justify-content: center;
+  }
 ```
 <p align = center>3
 
 __________
 
-```html
-    display: flex;
-    justify-content: center;
-  }
+```css
   .logo{
     margin-right: 10px;
   }

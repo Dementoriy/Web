@@ -39,6 +39,8 @@
 
 
 
+
+
 <p align = center>Киров 2022
 
 __________
@@ -79,6 +81,7 @@ Webpack — это статический сборщик модулей. Его 
 К текущему проекту был подключен сборщик модулей Webpack с помощью команды npm install.
 
 <p align = center>2
+
 __________
 
 4. Подключить и изучить библиотеку Axios
@@ -106,6 +109,12 @@ TypeScript — это язык программирования, в которо
 
 <p align = center>Рисунок 1 – Страница, отображающая ФИО и сайт ВятГУ
 
+Вывод: в ходе лабораторной работы были изучены: веб-фреймворк VUE, сборщик модулей Webpack, библиотека Axios, язык программирования TypeScript. С помощью перечисленных компонентов на практике реализовано отображение на странице фамилии, имени, отчества и сайта ВятГУ.
+
+<p align = center>3
+
+__________
+
 <p align = center>Приложение А
 
 <p align = center>(обязательное) 
@@ -120,8 +129,7 @@ TypeScript — это язык программирования, в которо
   </div>
 </template>
 
-<p align = center>3
-__________
+
 
 <script lang="ts">
 import Vue from 'vue';
@@ -151,6 +159,7 @@ export default {
 </script>
 ```
 <p align = center>4
+
 __________
 
 <p align = center>Приложение Б
@@ -185,6 +194,11 @@ text-align: center;
 }
 </style>
 ```
+
+<p align = center>5
+
+__________
+
 <p align = center>Приложение B
 
 <p align = center>(обязательное) 
@@ -216,7 +230,7 @@ __________
 }
 </style>
 ```
-<p align = center>10
+<p align = center>6
 
 ______
 <p align = center>Приложение Г
@@ -232,5 +246,5 @@ ______
 - <https://habr.com/ru/company/ruvds/blog/477286/>
 - <https://medium.com/nuances-of-programming/введение-в-webpack-для-новичков-6cafbf562386>
 
-<p align = center>6
+<p align = center>7
 

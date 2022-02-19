@@ -26,7 +26,7 @@
 
 <p align = center>«Web-программирование»
 
-<p align = center>Вариант 2
+<p align = center>Вариант 1
 
 
 

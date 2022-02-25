@@ -1,31 +1,67 @@
 <template>
-<div class="container">
-  <div class="logo">
-    <img src="../assets/big_logo.jpg" alt="logo" class="biglogo-img">
-    <img src="../assets/logo.jpg" alt="logo" class="logo-img">
+  <div>
+  <div class="switch">
+    <a type="button" class="EnterBtn" v-on:click="toggleStyleEnter">Вход</a>
+    <a type="button" class="RegBtn" v-on:click="toggleStyleRegister">Регистрация</a>
   </div>
-  <div class="registration_block">
-    <h1 class="title">Авторизация</h1>
-    <div class="input_desctop">
-      <div class="input-block">
-        <p>Логин</p>
-        <input type="text">
+  <div class="container">
+    <div class="logo">
+      <img src="../assets/big_logo.jpg" alt="logo" class="biglogo-img">
+      <img src="../assets/logo.jpg" alt="logo" class="logo-img">
+    </div>
+    <div class="autorization_block">
+      <h1 class="title">Авторизация</h1>
+      <div class="input_desctop">
+        <div class="input-block">
+          <p>Логин</p>
+          <input type="text">
+        </div>
+        <div class="input-block">
+          <p>Пароль</p>
+          <input type="password">
+        </div>
       </div>
-      <div class="input-block">
-        <p>Пароль</p>
-        <input type="password">
+      <div class="input-mobil">
+        <input type="text" placeholder="Логин">
+        <input type="password" placeholder="Пароль">
+      </div>
+      <div class="save">
+        <input type="checkbox">
+        <h3 class="save-text">Сохранить</h3>
+      </div>
+      <div>
+        <button type="button" class="Enter-btn">Авторизоваться</button>
       </div>
     </div>
-    <div class="input-mobil">
-      <input type="text" placeholder="Логин">
-      <input type="password" placeholder="Пароль">
-    </div>
-    <div class="save">
-      <input type="checkbox">
-      <h3 class="save-text">Сохранить</h3>
-    </div>
-    <div>
-      <button type="button" class="Enter-btn">Авторизоваться</button>
+    <div class="registrationtion_block">
+      <h1 class="title">Регистрация</h1>
+      <div class="input_desctop">
+        <div class="input-block">
+          <p>Почта</p>
+          <input type="email">
+        </div>
+        <div class="input-block">
+          <p>Логин</p>
+          <input type="text">
+        </div>
+        <div class="input-block">
+          <p>Пароль</p>
+          <input type="password">
+        </div>
+        <div class="input-block">
+          <p>Повторите пароль</p>
+          <input type="password">
+        </div>
+      </div>
+      <div class="input-mobil">
+        <input type="email" placeholder="Почта">
+        <input type="text" placeholder="Логин">
+        <input type="password" placeholder="Пароль">
+        <input type="password" placeholder="Повторите пароль">
+      </div>
+      <div>
+        <button type="button" class="Enter-btn mt-20">Зарегистрироваться</button>
+      </div>
     </div>
   </div>
 </div>
@@ -33,7 +69,28 @@
 
 <script lang="ts">
 export default {
-
+  methods: {
+    toggleStyleEnter() {
+      const enter :HTMLDivElement = document.querySelector('.autorization_block');
+      const reg :HTMLDivElement = document.querySelector('.registrationtion_block');
+      const enterBtn :HTMLDivElement = document.querySelector('.EnterBtn');
+      const regBtn :HTMLDivElement = document.querySelector('.RegBtn');
+      enter.style.display = 'flex';
+      reg.style.display = 'none';
+      enterBtn.style.color = 'green';
+      regBtn.style.color = 'black';
+    },
+    toggleStyleRegister() {
+      const enter :HTMLDivElement = document.querySelector('.autorization_block');
+      const reg :HTMLDivElement = document.querySelector('.registrationtion_block');
+      const enterBtn :HTMLDivElement = document.querySelector('.EnterBtn');
+      const regBtn :HTMLDivElement = document.querySelector('.RegBtn');
+      enter.style.display = 'none';
+      reg.style.display = 'flex';
+      enterBtn.style.color = 'black';
+      regBtn.style.color = 'green';
+    },
+  },
 };
 </script>
 <style scoped>
@@ -42,6 +99,25 @@ export default {
     margin: 0 auto;
     display: flex;
     justify-content: center;
+  }
+  .switch{
+    text-align: center;
+    margin: 30px 0px;
+  }
+  .switch a{
+    font-size: 30px;
+    padding: 5px 10px;
+  }
+  .EnterBtn{
+    color: green;
+    cursor: pointer;
+  }
+  .RegBtn{
+    color: black;
+    cursor: pointer;
+  }
+  .mt-20{
+    margin-top: 10px;
   }
   .logo{
     margin-right: 10px;
@@ -52,17 +128,19 @@ export default {
   .logo-img{
     display: none;
   }
-  .registration_block{
+  .autorization_block{
     display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .registrationtion_block{
+    display: none;
     align-items: center;
     flex-direction: column;
   }
   .title{
     margin-top: 0;
     margin-bottom: 10px;
-  }
-  .Enter-btn{
-    background-color: green;
   }
   .save{
     display: flex;
@@ -76,6 +154,7 @@ export default {
     cursor: pointer;
   }
   .Enter-btn{
+    background-color: green;
     padding: 14px 26px;
     border-radius: 5px;
     font-size: 16px;

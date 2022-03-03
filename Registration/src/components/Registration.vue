@@ -14,11 +14,11 @@
       <div class="input_desctop">
         <div class="input-block">
           <p>Логин</p>
-          <input type="text">
+          <input type="text" id="login">
         </div>
         <div class="input-block">
           <p>Пароль</p>
-          <input type="password">
+          <input type="password" id="password">
         </div>
       </div>
       <div class="input-mobil">
@@ -30,7 +30,7 @@
         <h3 class="save-text">Сохранить</h3>
       </div>
       <div>
-        <button type="button" class="Enter-btn">Авторизоваться</button>
+        <button type="button" class="Enter-btn" v-on:click="login">Авторизоваться</button>
       </div>
     </div>
     <div class="registrationtion_block">
@@ -68,6 +68,8 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios';
+
 export default {
   methods: {
     toggleStyleEnter() {
@@ -89,6 +91,25 @@ export default {
       reg.style.display = 'flex';
       enterBtn.style.color = 'black';
       regBtn.style.color = 'green';
+    },
+    login() {
+      const login :HTMLInputElement = document.querySelector('.login');
+      const password :HTMLInputElement = document.querySelector('.password');
+      const data = {
+        'login': login.value,
+        'password': password.value,
+      };
+      const url = 'https://f1d4f9b7-8963-4873-a367-454f6d86e622.mock.pstmn.io/auth/check';
+      axios.post(url, data, { headers: { 'Content-Type': 'appcation/json' } })
+        .then(
+          (res: any) => {
+            console.log(res.data);
+          },
+        ).catch(
+          (err: any) => {
+            console.log(err);
+          },
+        );
     },
   },
 };

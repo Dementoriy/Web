@@ -1,7 +1,7 @@
 <template>
   <div>
     <Fio lastName="Ведерников" firstName="Дмитрий" middleName="Михайлович"/>
-    <Vyatsu :results="results"/>
+    <Vyatsu hidden :results="results"/>
     <Registration/>
   </div>
 </template>

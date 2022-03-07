@@ -1,17 +1,35 @@
 <template>
-  <div>
-    <Fio lastName="Ведерников" firstName="Дмитрий" middleName="Михайлович"/>
-    <Vyatsu hidden :results="results"/>
-    <Registration/>
+  <div class="conteiner">
+    <SideBar class="SideBar"/>
+    <div class="block">
+      <Header class="Header"/>
+      <Dashboard class="Dashboard"/>
+    </div>
   </div>
 </template>
-
+<style scroped>
+  .conteiner{
+    display: flex;
+    width: 100%;
+    background-color: #F5F5F5;
+    font-family: 'Lato', sans-serif;
+  }
+  .SideBar{
+    width: 20%;
+  }
+  .block{
+    width: 80%;
+  }
+  .Header{
+    width: 100%;
+  }
+</style>
 <script lang="ts">
 import Vue from 'vue';
 import axios from 'axios';
-import Fio from '../../fio/src/components/Fio.vue';
-import Vyatsu from '../../vyatsu/src/components/Vyatsu.vue';
-import Registration from '../../Registration/src/components/Registration.vue';
+import Header from '../../header/src/components/Header.vue';
+import SideBar from '../../sideBar/src/components/SideBar.vue';
+import Dashboard from '../../dashboard/src/components/Dashboard.vue';
 
 const url = 'http://localhost:8080/admission/';
 
@@ -21,9 +39,9 @@ export default {
     results: [],
   },
   components: {
-    Fio,
-    Vyatsu,
-    Registration,
+    Header,
+    SideBar,
+    Dashboard,
   },
   mounted() {
     axios

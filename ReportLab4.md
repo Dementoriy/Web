@@ -71,7 +71,7 @@
 
 Реализованный макет представлен на рисунке 2.
 
-<p align=center><img src="./img/Lab4_1.png" alt="MaketDesc"></p>
+<p align=center><img src="./img/MaketDesc.png" alt="MaketDesc"></p>
 
 <p align = center>Рисунок 2 – Dashboard-макет для Desctop
 
@@ -82,7 +82,7 @@
 
 С помощью медиа запросов была реализована способность страницы адаптироваться под мобильные устройства. Результат продемонстрирован на рисунке 3.
 
-<p align=center><img src="./img/Lab4_2.png" alt="MaketMobil"></p>
+<p align=center><img src="./img/MaketMobil.png" alt="MaketMobil"></p>
 
 <p align = center>Рисунок 2 – Dashboard-макет для мобильных устройств
 

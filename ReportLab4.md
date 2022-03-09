@@ -101,6 +101,9 @@
 
 <p align = center>Рисунок 3 – Dashboard-макет для мобильных устройств
 
+<p align = center>3
+<hr>
+
 Навигационная панель слева была перемещена в отдельное меню, которое появляется по нажатию кнопки, которая распалагается на месте прежней панели. Меню навигации изображено на рисунке 4.
 
 <p align=center><img src="./img/Navigation.jpg" alt="Navigation"></p>
@@ -115,7 +118,7 @@
 
 Вывод: в ходе лабораторной работы были закреплены навыки работы с фреймворком Vue. Реализован Dashboard-макет для компьютеров и мобильных устройств. 
 
-<p align = center>3
+<p align = center>4
 <hr>
 
 
@@ -345,7 +348,7 @@ export default {
 </style>
 
 ```
-<p align = center>4
+<p align = center>5
 <hr>
 
 <p align = center>Приложение В
@@ -587,6 +590,8 @@ export default {
   }
 </style>
 ```
+<p align = center>6
+<hr>
 <p align = center>Приложение Г
 
 <p align = center>(обязательное) 
@@ -943,5 +948,5 @@ export default {
 </style>
 
 ```
-<p align = center>5
+<p align = center>7
 <hr>

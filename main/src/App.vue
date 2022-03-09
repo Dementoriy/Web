@@ -1,35 +1,18 @@
 <template>
   <div class="conteiner">
-    <SideBar class="SideBar"/>
-    <div class="block">
-      <Header class="Header"/>
-      <Dashboard class="Dashboard"/>
-    </div>
+    <Email class="Email"/>
+    <Registration class="Registration"/>
+    <Successfully class="Successfully"/>
   </div>
 </template>
 <style scroped>
-  .conteiner{
-    display: flex;
-    width: 100%;
-    background-color: #F5F5F5;
-    font-family: 'Lato', sans-serif;
-  }
-  .SideBar{
-    width: 20%;
-  }
-  .block{
-    width: 80%;
-  }
-  .Header{
-    width: 100%;
-  }
 </style>
 <script lang="ts">
 import Vue from 'vue';
 import axios from 'axios';
-import Header from '../../header/src/components/Header.vue';
-import SideBar from '../../sideBar/src/components/SideBar.vue';
-import Dashboard from '../../dashboard/src/components/Dashboard.vue';
+import Email from '../../email/src/components/Email.vue';
+import Registration from '../../registration/src/components/Registration.vue';
+import Successfully from '../../successfully/src/components/Successfully.vue';
 
 const url = 'http://localhost:8080/admission/';
 
@@ -39,9 +22,9 @@ export default {
     results: [],
   },
   components: {
-    Header,
-    SideBar,
-    Dashboard,
+    Email,
+    Registration,
+    Successfully,
   },
   mounted() {
     axios

@@ -13,15 +13,10 @@ export default {
     NextReg() {
       const emailBlock :HTMLDivElement = document.querySelector('.EmailBlock');
       const registrationBlock :HTMLDivElement = document.querySelector('.RegistrationBlock');
-      // const emailInput :HTMLInputElement = document.querySelector('.EmailInput');
-      // const emailInput = (document.getElementById('EmailInput') as HTMLInputElement).value;
       emailBlock.style.display = 'none';
       registrationBlock.style.display = 'block';
-      // (document.querySelector('.regEmail') as HTMLInputElement).value
-      // = (document.getElementById('EmailInput') as HTMLInputElement).value;
       const enterEmail = (document.querySelector('.EmailInput') as HTMLInputElement).value;
       const regEmail :HTMLInputElement = document.querySelector('.regEmail');
-
       regEmail.value = enterEmail;
     },
   },

@@ -293,10 +293,10 @@ export default {
   }
   @media (max-width: 420px){
     .cards{
-      width: 90%;
+      width: 110%;
       grid-template-columns: repeat(1, 90%);
       gap: 0 14px;
-      margin-left: 4%;
+      margin-left: -10%;
     }
     .card
     {

@@ -28,7 +28,8 @@
       <main>
         <ul>
           <li class="BGW-li">
-            <button type="button" class="btnCheck" id="Dashboard" v-on:click="clickSideBar">
+            <button type="button" class="btnCheck" id="Dashboard"
+              v-on:click="clickSideBar" href="#">
               <img src="../assets/shop.svg" alt="shop" class="bgp mr20">
               <h4 class="m0">Dashboard</h4>
             </button>
@@ -107,6 +108,10 @@ export default {
 </script>
 
 <style scroped>
+  .navbar-panel
+  {
+    margin-top: 10px;
+  }
   header{
     display: flex;
     margin-left: 40px;

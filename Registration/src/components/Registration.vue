@@ -11,56 +11,43 @@
     </div>
     <div class="autorization_block">
       <h1 class="title">Авторизация</h1>
-      <div class="input_desctop">
-        <div class="input-block">
-          <p>Логин</p>
-          <input type="text" id="login">
-        </div>
-        <div class="input-block">
-          <p>Пароль</p>
-          <input type="password" id="password">
-        </div>
+      <div class="input-block">
+        <p>Логин</p>
+        <input type="text" id="log" placeholder="Логин">
       </div>
-      <div class="input-mobil">
-        <input type="text" placeholder="Логин">
-        <input type="password" placeholder="Пароль">
+      <div class="input-block">
+        <p>Пароль</p>
+        <input type="password" id="password" placeholder="Пароль">
       </div>
       <div class="save">
         <input type="checkbox">
         <h3 class="save-text">Сохранить</h3>
       </div>
       <div>
-        <button type="button" class="Enter-btn" v-on:click="login">Авторизоваться</button>
+        <button type="button" class="Enter-btn" v-on:click="signIn">Авторизоваться</button>
       </div>
     </div>
     <div class="registrationtion_block">
       <h1 class="title">Регистрация</h1>
-      <div class="input_desctop">
-        <div class="input-block">
-          <p>Почта</p>
-          <input type="email">
-        </div>
-        <div class="input-block">
-          <p>Логин</p>
-          <input type="text">
-        </div>
-        <div class="input-block">
-          <p>Пароль</p>
-          <input type="password">
-        </div>
-        <div class="input-block">
-          <p>Повторите пароль</p>
-          <input type="password">
-        </div>
+      <div class="input-block">
+        <p>Почта</p>
+        <input type="email" placeholder="email">
       </div>
-      <div class="input-mobil">
-        <input type="email" placeholder="Почта">
-        <input type="text" placeholder="Логин">
+      <div class="input-block">
+        <p>Логин</p>
+        <input type="text" placeholder="Логин" id="regLog">
+      </div>
+      <div class="input-block">
+        <p>Пароль</p>
+        <input type="password" placeholder="Пароль" id="regPass">
+      </div>
+      <div class="input-block">
+        <p>Повторите пароль</p>
         <input type="password" placeholder="Пароль">
-        <input type="password" placeholder="Повторите пароль">
       </div>
       <div>
-        <button type="button" class="Enter-btn mt-20">Зарегистрироваться</button>
+        <button type="button" class="Enter-btn mt-20" v-on:click="signOn">Зарегистрироваться
+        </button>
       </div>
     </div>
   </div>
@@ -92,29 +79,58 @@ export default {
       enterBtn.style.color = 'black';
       regBtn.style.color = 'green';
     },
-    login() {
-      const login :HTMLInputElement = document.querySelector('.login');
-      const password :HTMLInputElement = document.querySelector('.password');
-      const data = {
-        'login': login.value,
-        'password': password.value,
+    signIn() {
+      const log :HTMLInputElement = document.getElementById('log') as HTMLInputElement;
+      const password :HTMLInputElement = document.getElementById('password') as HTMLInputElement;
+
+      const config = {
+        url: 'https://b83c67c6-f6e2-44a3-b933-0dbe68ae85c0.mock.pstmn.io/auth/login',
       };
-      const url = 'https://f1d4f9b7-8963-4873-a367-454f6d86e622.mock.pstmn.io/auth/check';
-      axios.post(url, data, { headers: { 'Content-Type': 'appcation/json' } })
-        .then(
-          (res: any) => {
-            console.log(res.data);
-          },
-        ).catch(
-          (err: any) => {
-            console.log(err);
-          },
-        );
+      const data = {
+        login: log.value,
+        password: password.value,
+      };
+      axios.post(config.url, data, { headers: { 'x-mock-match-request-body': true } })
+        .then((response) => {
+          console.log(response.data.completed);
+          if (response.data.completed) {
+            alert('Успешно!');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert('Неверный логин или пароль!');
+        });
+    },
+    signOn() {
+      const regLog :HTMLInputElement = document.getElementById('regLog') as HTMLInputElement;
+      const regPass :HTMLInputElement = document.getElementById('regPass') as HTMLInputElement;
+
+      const config = {
+        url: 'https://b83c67c6-f6e2-44a3-b933-0dbe68ae85c0.mock.pstmn.io/auth/check',
+      };
+      const data = {
+        login: regLog.value,
+        password: regPass.value,
+      };
+      axios.get(config.url + '?' + data.login + '&' + data.password)
+        .then((response) => {
+          console.log(response.data.isValid);
+          if (response.data.isValid) {
+            alert('Логин занят!');
+          } else alert('Успешно!');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };
 </script>
 <style scoped>
+  .input-block input::placeholder{
+    color: white;
+  }
   .container{
     width: 100%;
     margin: 0 auto;
@@ -182,10 +198,6 @@ export default {
     color: white;
     cursor: pointer;
   }
-  .input-mobil{
-    display: none;
-    flex-direction: column;
-  }
   .input-block p{
       margin-bottom: 0px;
   }
@@ -193,6 +205,7 @@ export default {
     font-size: 20px;
     text-decoration: none;
     padding: 2px 1px;
+    margin-bottom: 10px;
     }
   @media (max-width:600px){
     .container{
@@ -206,19 +219,11 @@ export default {
       margin: 0 auto;
       height: 100px;
     }
-    .input_desctop{
+    .input-block input::placeholder{
+    color: gray;
+    }
+    .input-block p{
       display: none;
-    }
-    .input-mobil{
-      display: flex;
-    }
-    .input-mobil input{
-      margin-top: 10px;
-    }
-    .input-mobil input{
-    font-size: 20px;
-    text-decoration: none;
-    padding: 2px 1px;
     }
   }
     @media (max-width:260px){

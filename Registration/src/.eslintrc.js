@@ -12,5 +12,6 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/no-var-requires': 0,
     'quote-props': ['error', 'consistent'],
+    'prefer-template': 'off',
   },
 };

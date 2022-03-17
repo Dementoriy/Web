@@ -31,7 +31,7 @@
       <h1 class="title">Регистрация</h1>
       <div class="input-block">
         <p>Почта</p>
-        <input type="email" placeholder="email">
+        <input type="email" placeholder="email" id="regEmail">
       </div>
       <div class="input-block">
         <p>Логин</p>
@@ -43,7 +43,7 @@
       </div>
       <div class="input-block">
         <p>Повторите пароль</p>
-        <input type="password" placeholder="Пароль">
+        <input type="password" placeholder="Пароль" id="regPass2">
       </div>
       <div>
         <button type="button" class="Enter-btn mt-20" v-on:click="signOn">Зарегистрироваться
@@ -105,23 +105,40 @@ export default {
     signOn() {
       const regLog :HTMLInputElement = document.getElementById('regLog') as HTMLInputElement;
       const regPass :HTMLInputElement = document.getElementById('regPass') as HTMLInputElement;
-
+      const regPass2 :HTMLInputElement = document.getElementById('regPass2') as HTMLInputElement;
+      const regEmail :HTMLInputElement = document.getElementById('regEmail') as HTMLInputElement;
       const config = {
         url: 'https://b83c67c6-f6e2-44a3-b933-0dbe68ae85c0.mock.pstmn.io/auth/check',
       };
       const data = {
         login: regLog.value,
-        password: regPass.value,
       };
-      axios.get(config.url + '?' + data.login + '&' + data.password)
+      if (regEmail.value === '') {
+        alert('Введите почту!');
+        return;
+      }
+      if (regLog.value === '') {
+        alert('Введите логин!');
+        return;
+      }
+      if (regPass.value === '') {
+        alert('Введите пароль!');
+        return;
+      }
+      if (regPass.value !== regPass2.value) {
+        alert('Пароли не совпадают!');
+        return;
+      }
+      axios.post(config.url, data, { headers: { 'x-mock-match-request-body': true } })
         .then((response) => {
           console.log(response.data.isValid);
           if (response.data.isValid) {
             alert('Логин занят!');
-          } else alert('Успешно!');
+          }
         })
         .catch((error) => {
           console.log(error);
+          alert('Успешно!');
         });
     },
   },

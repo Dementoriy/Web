@@ -1,18 +1,15 @@
 <template>
-  <div class="conteiner">
-    <Email class="Email"/>
-    <Registration class="Registration"/>
-    <Successfully class="Successfully"/>
-  </div>
+ <Table/>
 </template>
 <style scroped>
+  .conteiner table{
+    border-radius: 1px;
+  }
 </style>
 <script lang="ts">
 import Vue from 'vue';
 import axios from 'axios';
-import Email from '../../email/src/components/Email.vue';
-import Registration from '../../registration/src/components/Registration.vue';
-import Successfully from '../../successfully/src/components/Successfully.vue';
+import Table from '../../table/src/components/table.vue';
 
 const url = 'http://localhost:8080/admission/';
 
@@ -22,9 +19,7 @@ export default {
     results: [],
   },
   components: {
-    Email,
-    Registration,
-    Successfully,
+    Table,
   },
   mounted() {
     axios

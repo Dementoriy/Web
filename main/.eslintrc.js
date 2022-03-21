@@ -13,5 +13,6 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 0,
     'quote-props': ['error', 'consistent'],
     'max-len': 'off',
+    'prefer-template': 'off',
   },
 };

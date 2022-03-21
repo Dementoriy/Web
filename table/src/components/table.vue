@@ -1,79 +1,83 @@
 <template>
  <div class="conteiner">
-   <button type="button" v-on:click="GetList">Сформировать список</button>
-   <button type="button" v-on:click="FindById">Найти по id</button>
-    <table>
+    <button type="button" v-on:click="GetList">Вывод таблицы</button>
+    <loader v-if="loading"/>
+    <table v-else>
       <tr><th>id</th><th>ФИО</th><th>Возраст</th><th>Почта</th></tr>
-      <tr v-on:click="ClickRow" v-for="item in rowData" :key="item.id">
+      <tr v-on:click="FindById(item.id)" v-for="(item) in list" :key="item.id">
         <td>{{ item.id }}</td>
         <td>{{ item.fio }}</td>
         <td>{{ item.age }}</td>
         <td>{{ item.email }}</td>
       </tr>
     </table>
+    <div id="openModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Подробная информация</h3>
+          <a v-on:click="CloseModal" class="close">×</a>
+        </div>
+        <div class="modal-body">
+          <p>ID: {{element.id}}</p>
+          <p>ФИО: {{element.fio}}</p>
+          <p>Возраст: {{element.age}}</p>
+          <p>Email: {{element.email}}</p>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import axios from 'axios';
-import Vue from 'vue';
 
-const app = new Vue({
-  el: '#app',
-  data: {
-    mail: '',
-    date: '',
-    adress: '',
-    company: '',
-    fliers: '',
-    rowData: [],
-  },
+export default {
+  data: () => ({
+    loading: true,
+    list: [],
+    element: {},
+  }),
   methods: {
-    ClickRow() {
-      alert('Ти далбаеб поешь говна пожалуйста');
-    },
-    addItem(id, fio, age, email) {
-      const myObject = {
-        mail: this.id,
-        date: this.fio,
-        adress: this.age,
-        company: this.email,
-      };
-      this.rowData.push(myObject);
-      this.id = id;
-      this.fio = fio;
-      this.age = age;
-      this.email = email;
-    },
     GetList() {
-      // const log :HTMLInputElement = document.getElementById('log') as HTMLInputElement;
-      // const password :HTMLInputElement = document.getElementById('password') as HTMLInputElement;
       const config = {
         url: 'https://9eb3cae0-9260-4214-a5d9-07dc6c847c58.mock.pstmn.io',
       };
       axios.get(config.url)
         .then((response) => {
           console.log(response.data);
+          this.list = response.data;
+          this.loading = false;
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    FindById() {
+    FindById(i) {
       const config = {
-        url: 'https://9eb3cae0-9260-4214-a5d9-07dc6c847c58.mock.pstmn.io/1',
+        url: 'https://9eb3cae0-9260-4214-a5d9-07dc6c847c58.mock.pstmn.io/',
       };
-      axios.get(config.url)
+      axios.get(config.url + i)
         .then((response) => {
           console.log(response.data);
+          this.element = response.data;
+          const modal :HTMLDivElement = document.querySelector('#openModal');
+          modal.style.opacity = '1';
+          modal.style.pointerEvents = 'auto';
+          modal.style.overflowY = 'auto';
         })
         .catch((error) => {
           console.log(error);
         });
     },
+    CloseModal() {
+      const modal :HTMLDivElement = document.querySelector('#openModal');
+      modal.style.opacity = '0';
+      modal.style.pointerEvents = 'none';
+    },
   },
-});
-
+};
 </script>
 <style scroped>
   .conteiner{
@@ -122,4 +126,104 @@ const app = new Vue({
     background: #e8edff;
     cursor: pointer;
   }
+  .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1050;
+    opacity: 0;
+    -webkit-transition: opacity 200ms ease-in;
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+}
+.modal:target {
+    opacity: 1;
+    pointer-events: auto;
+    overflow-y: auto;
+}
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+      max-width: 500px;
+      margin: 30px auto;
+  }
+}
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+@media (min-width: 768px) {
+  .modal-content {
+      -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+      box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  }
+}
+.modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #eceeef;
+}
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.close {
+    float: right;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    text-decoration: none;
+}
+.close:focus, .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+.modal-body {
+  margin-left: 10px;
+  text-align: left;
+}
 </style>

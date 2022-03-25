@@ -3,6 +3,7 @@
     <Fio lastName="Ведерников" firstName="Дмитрий" middleName="Михайлович"/>
     <Vyatsu hidden :results="results"/>
     <Registration/>
+    <Button class="btnStart"/>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import axios from 'axios';
 import Fio from '../../fio/src/components/Fio.vue';
 import Vyatsu from '../../vyatsu/src/components/Vyatsu.vue';
 import Registration from '../../Registration/src/components/Registration.vue';
+import Button from '../../button/src/components/Button.vue';
 
 const url = 'http://localhost:8080/admission/';
 
@@ -24,6 +26,7 @@ export default {
     Fio,
     Vyatsu,
     Registration,
+    Button,
   },
   mounted() {
     axios
@@ -36,3 +39,10 @@ export default {
   },
 };
 </script>
+<style scoped>
+  .btnStart
+  {
+    position: fixed;
+    z-index: 100;
+  }
+</style>

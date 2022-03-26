@@ -1,8 +1,10 @@
 <template>
   <div>
-    <Fio lastName="Ведерников" firstName="Дмитрий" middleName="Михайлович"/>
-    <Vyatsu hidden :results="results"/>
-    <Registration/>
+    <div id="mainContainer">
+      <Fio lastName="Ведерников" firstName="Дмитрий" middleName="Михайлович" class="bg-div"/>
+      <Vyatsu :results="results" class="bg-div"/>
+      <Registration class="bg-div"/>
+    </div>
     <Button class="btnStart"/>
   </div>
 </template>
@@ -40,9 +42,17 @@ export default {
 };
 </script>
 <style scoped>
+  #mainContainer{
+    pointer-events: none;
+  }
   .btnStart
   {
     position: fixed;
     z-index: 100;
+    margin-top: -60%;
+    margin-left: 30%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    backdrop-filter: blur(4rem);
   }
 </style>

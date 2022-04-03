@@ -1,5 +1,8 @@
 <template>
- <Table/>
+  <div>
+    <Table/>
+    <Reg/>
+  </div>
 </template>
 <style scroped>
   .conteiner table{
@@ -10,8 +13,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import Table from '../../table/src/components/table.vue';
-
-const url = 'http://localhost:8080/admission/';
+import Reg from '../../reg/src/components/Reg.vue';
 
 export default {
   name: 'App',
@@ -20,15 +22,7 @@ export default {
   },
   components: {
     Table,
-  },
-  mounted() {
-    axios
-      .get(url)
-      .then((response) => {
-        console.log(response);
-        this.results = response.data;
-      })
-      .catch((error: any) => console.log(error));
+    Reg,
   },
 };
 </script>

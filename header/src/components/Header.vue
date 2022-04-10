@@ -95,6 +95,7 @@ export default {
   .navBarPanel h4{
     font-size: 16px;
     color: #67748E;
+    margin: 2px 0 0 0;
   }
   .Person{
     width: 30px;
@@ -115,6 +116,18 @@ export default {
     nav h4:nth-child(1)
     {
       display: none;
+    }
+    .mrNav{
+      width: 40px;
+      height: 40px;
+    }
+    .navBarPanel h4{
+      font-size: 30px;
+      margin-left: 10px;
+      margin-top: 4px;
+    }
+    .NavBtn{
+      margin-top: 8%;
     }
     .navBarPanel{
     display: flex;

@@ -190,10 +190,10 @@ export default {
     background: linear-gradient(135deg, #FF0080 0%, #7928CA 100%);
     box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.07);
     border-radius: 8px;
+    text-align: center;
   }
   .card-img img{
-    margin-top: 14px;
-    margin-left: 14px;
+    margin-top: 25%;
   }
 
   .Banners{

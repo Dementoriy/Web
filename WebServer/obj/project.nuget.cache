@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1P2oN4Htw5h/t9bFcno56D9klFjX8yK/tECH2bL3pwaE4uEC4MsvDwRPUlUkgsS8wNdaoKaYzMMfgXa982pw8Q==",
+  "success": true,
+  "projectFilePath": "D:\\Repositories\\Web\\WebServer\\WebServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\demen\\.nuget\\packages\\restpanda\\1.2.0\\restpanda.1.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}

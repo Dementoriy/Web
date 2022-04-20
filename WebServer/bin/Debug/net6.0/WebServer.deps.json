@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "WebServer/1.0.0": {
+        "dependencies": {
+          "RestPanda": "1.2.0"
+        },
+        "runtime": {
+          "WebServer.dll": {}
+        }
+      },
+      "RestPanda/1.2.0": {
+        "runtime": {
+          "lib/net6.0/RestPanda.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WebServer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RestPanda/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kC1vVnpTKCy9kkumvKEb1v2kn0lWSmBnM2/ol4Wm3IuWpYh2P5BlvAfrhx2pVr/LNIekJaJG3ap+uvSgFyvrxQ==",
+      "path": "restpanda/1.2.0",
+      "hashPath": "restpanda.1.2.0.nupkg.sha512"
+    }
+  }
+}

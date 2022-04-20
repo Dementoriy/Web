@@ -3,12 +3,22 @@
     <button type="button" v-on:click="GetList">Вывод таблицы</button>
     <loader v-if="loading"/>
     <table v-else>
-      <tr><th>id</th><th>ФИО</th><th>Возраст</th><th>Почта</th></tr>
+      <tr><th>gender</th><th>id</th><th>ФИО</th><th>Возраст</th><th>Почта</th></tr>
       <tr v-on:click="FindById(item.id)" v-for="(item) in list" :key="item.id">
+        <td>
+          <font-awesome-icon v-if="item.gender == 1" icon="male" />
+          <font-awesome-icon v-else icon="female" />
+        </td>
         <td>{{ item.id }}</td>
         <td>{{ item.fio }}</td>
         <td>{{ item.age }}</td>
-        <td>{{ item.email }}</td>
+        <td>
+          {{ item.email }}
+          <sup>
+            <font-awesome-icon v-if="item.verificEmail == true" icon="fa-check-circle" />
+            <font-awesome-icon v-else icon="fa-ban" />
+          </sup>
+        </td>
       </tr>
     </table>
     <div id="openModal" class="modal">
@@ -32,6 +42,13 @@
 
 <script lang="ts">
 import axios from 'axios';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faMale, faFemale, faCheckCircle, faBan,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faMale, faFemale, faCheckCircle, faBan);
 
 export default {
   data: () => ({
@@ -39,6 +56,9 @@ export default {
     list: [],
     element: {},
   }),
+  components: {
+    FontAwesomeIcon,
+  },
   methods: {
     GetList() {
       const config = {

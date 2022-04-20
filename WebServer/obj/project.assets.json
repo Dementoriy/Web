@@ -1,0 +1,98 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "RestPanda/1.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/RestPanda.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/RestPanda.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RestPanda/1.2.0": {
+      "sha512": "kC1vVnpTKCy9kkumvKEb1v2kn0lWSmBnM2/ol4Wm3IuWpYh2P5BlvAfrhx2pVr/LNIekJaJG3ap+uvSgFyvrxQ==",
+      "type": "package",
+      "path": "restpanda/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/RestPanda.dll",
+        "restpanda.1.2.0.nupkg.sha512",
+        "restpanda.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "RestPanda >= 1.2.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\demen\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Repositories\\Web\\WebServer\\WebServer.csproj",
+      "projectName": "WebServer",
+      "projectPath": "D:\\Repositories\\Web\\WebServer\\WebServer.csproj",
+      "packagesPath": "C:\\Users\\demen\\.nuget\\packages\\",
+      "outputPath": "D:\\Repositories\\Web\\WebServer\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\demen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "dependencies": {
+          "RestPanda": {
+            "target": "Package",
+            "version": "[1.2.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

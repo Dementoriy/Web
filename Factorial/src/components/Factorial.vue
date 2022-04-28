@@ -21,21 +21,21 @@ export default {
   },
   methods: {
     Calculate() {
-      if ('WebAssembly' in window) {
-        console.log('+');
-        //WebAssembly.instantiateStreaming(fetch('functions.wasm')) 
-        fetch("functions.wasm")
-        .then(Response)
-          .then((bytes) => {
-            WebAssembly.instantiate(bytes, importObject)
-          })
-          .then(result => {
-              const number = FactorialValue.value;
-              const results = result.instance.exports.factorial(number);
-              resultText.innerHTML = results;
-          })
-          .catch(console.error);
-      }
+      // if ('WebAssembly' in window) {
+      //   console.log('+');
+      //   // WebAssembly.instantiateStreaming(fetch('functions.wasm'))
+      //   fetch('functions.wasm')
+      //   .then(Response)
+      //     .then((bytes) => {
+      //       WebAssembly.instantiate(bytes, importObject)
+      //     })
+      //     .then(result => {
+      //         const number = FactorialValue.value;
+      //         const results = result.instance.exports.factorial(number);
+      //         resultText.innerHTML = results;
+      //     })
+      //     .catch(console.error);
+      // }
     },
   },
 };
